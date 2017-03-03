@@ -67,6 +67,9 @@ if( nextLine != null ) {
 - Added a print statement to the end of the try-catch block in Lexer.java's main() method -- this calls its own toString method, which I redefined in the bulletpoint above in order to get around main's unwillingness to work with instance methods as a static method itself.
 - Removed a null assignment that otherwise breaks the program.
 
+#### Execution and Development Environment
+I chose to develop this program in the IntelliJ IDE, which gave me access to internal UML design tools among other luxuries.  The program can be run from the IDE directly, or from the command prompt.  The section below provides instructions for compiling and executing as Jar.  The program requires a single file argument.
+
 ## Instructions for compiling and executing as Jar
 
 ```
@@ -91,7 +94,7 @@ This program assumes that the files that it analyzes will be "x files" -- it's s
 You can see that I've defined toString() methods for both SourceReader.java and Lexer.java.  Lexer's toString() places a function call to SourceReader's toString(), which itself calls the sourceAsString's own toString() method.
 
 #### Why are we making three calls to three differen't toString() methods?
-It might seem like a bad design decision, and in retrospect perhaps I should have picked slightly more descriptive output names.  But this chain of toString() calls was the only way that I could display the contents of sourceAsString from Lexer without using static members or methods (which you told us was wrong in class). 
+It might seem like a bad design decision, and in retrospect perhaps I should have picked slightly more descriptive output method names.  But this chain of toString() calls was the only way that I could display the contents of sourceAsString from Lexer without using static members or methods (which you told us was wrong in class). 
  
  ![alt text](http://i.imgur.com/dDy2Zda.png "Lexer, SourceReader, Token")
  
@@ -100,6 +103,9 @@ It might seem like a bad design decision, and in retrospect perhaps I should hav
  ![alt text](http://i.imgur.com/qgIS5nR.png "Complex UML graphic")
  
 The above image is a complex UML diagram that displays both relationships and content for classes -- I threw this in just to provide a more complete picture of what the program looks like.
+
+#### Code organization
+The code that I added was based on an attempt to preserve the "black box" nature of good OOP.  I gave SourceReader the job of keeping the sourceAsString member, for example, because it is SourceReader's sole responsibility to manage the source code.  I gave Lexer the responsibility of outputting information to the console, because its sole responsibility in turn was to output the stream of characters associated with the source code.  And of course, Token was the only acceptable place to add the lineNumber datum that corresponds to a Token's line number.
 
 ## Results and Conclusions
 
