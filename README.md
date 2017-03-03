@@ -7,6 +7,8 @@ by the grammar of the language being analyzed.
 
 Much of the program was written for me, but I made some changes to add or improve functionality as required by the program spec.
 
+### Summary of technical work
+
 #### Changes made to meet requirement 1
 - Replaced the file argument in Lexer.java's main() method with a String assigned to args[0].
 
