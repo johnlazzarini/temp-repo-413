@@ -80,6 +80,7 @@ javac lexer/setup/TokenSetup.java
 java lexer/setup/TokenSetup
 ```
 
+#### Run Lexer
 ```
 echo Main-Class: lexer/Lexer.java > manifest.txt
 javac lexer/*.java
