@@ -74,6 +74,12 @@ I chose to develop this program in the IntelliJ IDE, which gave me access to int
 
 ## Instructions for compiling and executing as Jar
 
+#### Run TokenSetup
+```
+javac lexer/setup/TokenSetup.java
+java lexer/setup/TokenSetup
+```
+
 ```
 echo Main-Class: lexer/Lexer.java > manifest.txt
 javac lexer/*.java
