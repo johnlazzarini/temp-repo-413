@@ -83,15 +83,15 @@ This program assumes that the files that it analyzes will be "x files" -- it's s
 
 ## Implementation discussion
 
-The UML graphic below describes the relationships between functions.  //add content to this section
-
-![alt text](http://i.imgur.com/mu4hawB.png "Simple UML graphic")
-
-This next graphic is much larger and contains implementation details for each class (data and members).
-
 ![alt text](http://i.imgur.com/YlZFoT0.png "Lexer, SourceReader, Token")
 
  The above image describes the architecture of the Lexer, SourceReader, and Token classes.  Most of the variable names are self describing to somebody who is familiar with file input/output, but might be a little confusing otherwise -- Lexer's EOF, for example, indicates whether the "End of File" has been reached or not.
+ 
+#### toString()
+You can see that I've defined toString() methods for both SourceReader.java and Lexer.java.  Lexer's toString() places a function call to SourceReader's toString(), which itself calls the sourceAsString's own toString() method.
+
+#### Why are we making three calls to three differen't toString() methods?
+It might seem like a bad design decision, and in retrospect perhaps I should have picked slightly more descriptive output names.  But this chain of toString() calls was the only way that I could display the contents of sourceAsString from Lexer without using static members or methods (which you told us was wrong in class). 
  
  ![alt text](http://i.imgur.com/dDy2Zda.png "Lexer, SourceReader, Token")
  
@@ -99,19 +99,14 @@ This next graphic is much larger and contains implementation details for each cl
  
  ![alt text](http://i.imgur.com/qgIS5nR.png "Complex UML graphic")
  
- The above image is a complex UML diagram that displays both relationships and content for classes -- I threw this in just to provide a more complete picture of what the program looks like.
- 
-#### toString()
-You can see that I've defined toString() methods for both SourceReader.java and Lexer.java.  Lexer's toString() places a function call to SourceReader's toString(), which itself calls the sourceAsString's own toString() method.
+The above image is a complex UML diagram that displays both relationships and content for classes -- I threw this in just to provide a more complete picture of what the program looks like.
 
-#### Why are we making three calls to three differen't toString() methods?
-It might seem like a bad design decision, and in retrospect perhaps I should have picked slightly more descriptive output names.  But this chain of toString() calls was the only way that I could display the contents of sourceAsString from Lexer without using static members or methods (which you told us was wrong in class). 
 ## Results and Conclusions
 
-This program meets the requirements of the spec and works as expected.  It successfully breaks programs down into lexicalaminolaphicalgraphics and displays the corresponding tokens alongside their line numbers.
+This program meets the requirements of the spec and works as expected.  It successfully breaks programs down into tokens and displays them alongside their line numbers.  Illegal tokens are identified alongside their line numbers, and a String representation of the source code is outputted at the end of the token line items.
 
-There were a couple of things that I had a hard time with understanding -- one was the while loop in the main() method within in Lexer.java.  I had a hard time with understanding how it was possible for the program to end while involving an infinite loop with no obvious break case -- this was before I really understood the try-block that surrounded it.
+There were a couple of things that I had a hard time with understanding -- one was the while loop in the main() method within in Lexer.java.  It was difficult for me to see how it could be possible for the program to end while involving an infinite loop with no obvious break case -- this was before I really understood that there was an exception being thrown within it.
 
-Another issue that I had involved the fact that main() didn't want me to access the source member, since main is a static method. I had to use a hacky fix in order to get around it.
+Another issue that I had involved the fact that main() didn't want me to access the source member, since main is a static method. I had to use a hacky fix in order to get around it, described in the toString() explanation in the implementation discussion.
 
 This was a good assignment though, I ended up learning a little bit more about how a program can be broken down into portions that a parser is able to interpret and understand.
