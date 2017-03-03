@@ -12,7 +12,7 @@ Much of the program was written for me, but I made some changes to add or improv
 
 #### Changes made to meet requirement 2
 
-- Added two lines ("VOid void" and "FLoat float") to the end of the tokens file.
+- Added the lines "GREAT >", "VOID void", and "FLOAT float" to the end of the tokens file.
 
 <br>Running TokensSetup regenerates the Tokens and TokenTypes classes to add the functionality necessarry to support void and float tokens.
 
