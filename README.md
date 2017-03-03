@@ -89,16 +89,22 @@ The UML graphic below describes the relationships between functions.  //add cont
 
 This next graphic is much larger and contains implementation details for each class (data and members).
 
-![alt text](http://i.imgur.com/qgIS5nR.png "Complex UML graphic")
-
 ![alt text](http://i.imgur.com/YlZFoT0.png "Lexer, SourceReader, Token")
 
  The above image describes the architecture of the Lexer, SourceReader, and Token classes.  Most of the variable names are self describing to somebody who is familiar with file input/output, but might be a little confusing otherwise -- Lexer's EOF, for example, indicates whether the "End of File" has been reached or not.
  
- ##### toString()
+ ![alt text](http://i.imgur.com/dDy2Zda.png "Lexer, SourceReader, Token")
+ 
+ The above image describes the architecture of the Tokens, Symbol, and TokenType classes.  Sorry for the very long Tokens UML, but I felt it would be helpful to see the list of all its members -- particularly the GREAT, FLOAT, and VOID tokens that were added by editing the tokens file.  Note that the symbol class contains a HashMap that is very similar to the one that was used in Assignment One.
+ 
+ ![alt text](http://i.imgur.com/qgIS5nR.png "Complex UML graphic")
+ 
+ The above image is a complex UML diagram that displays both relationships and content for classes -- I threw this in just to provide a more complete picture of what the program looks like.
+ 
+ #### toString()
 You can see that I've defined toString() methods for both SourceReader.java and Lexer.java.  Lexer's toString() places a function call to SourceReader's toString(), which itself calls the sourceAsString's own toString() method.
 
-##### Why are we making three calls to three differen't toString() methods?
+#### Why are we making three calls to three differen't toString() methods?
 It might seem like a bad design decision, and in retrospect perhaps I should have picked slightly more descriptive output names.  But this chain of toString() calls was the only way that I could display the contents of sourceAsString from Lexer without using static members or methods (which you told us was wrong in class). 
 ## Results and Conclusions
 
