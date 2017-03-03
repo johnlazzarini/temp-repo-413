@@ -101,7 +101,7 @@ This next graphic is much larger and contains implementation details for each cl
  
  The above image is a complex UML diagram that displays both relationships and content for classes -- I threw this in just to provide a more complete picture of what the program looks like.
  
- #### toString()
+#### toString()
 You can see that I've defined toString() methods for both SourceReader.java and Lexer.java.  Lexer's toString() places a function call to SourceReader's toString(), which itself calls the sourceAsString's own toString() method.
 
 #### Why are we making three calls to three differen't toString() methods?
